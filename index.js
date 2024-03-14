@@ -14,39 +14,37 @@ const displayWorkoutRoutine = () => {
 
 document.querySelector('#submitWorkout').addEventListener('click', displayWorkoutRoutine);
 
-// ⚠️⚠️⚠️ Lesson 3: Creating and Removing Elements ⚠️⚠️⚠️
-// Function to add new fitness goals and remove completed ones
-// NOW LET'S DEBUG TO PREVENT DUPLICATE GOALS FROM BEING SUBMITTED 🚀
+const addButtonEl = document.querySelector('#submitGoal');
+const goalInputEl = document.querySelector('#goalInput'); 
 addButtonEl.addEventListener("click",function(){
-    let inputValue=goalInputEl.value
-})
+    let inputValue = goalInputEl.value;
+    if (inputValue.trim() !== '') { // Check if the input is not empty
+        addNewGoal(inputValue);
+        goalInputEl.value = ''; // Clear the input field after adding the goal
+    }
+});
 
-
-const addNewGoal = () => {
-    const goalInput = document.querySelector('#goalInput').value;
+const addNewGoal = (goal) => { // Updated the function to accept a goal parameter
     const goalList = document.querySelector('#goalList');
-    
-    // ⚠️ Hint 1: Check for duplicates
-    // Use 'goalList' to get all existing goals and check if 'goalInput' matches any of them.
-    
-    // ⚠️ Hint 2: Prevent duplicates
-    // If a duplicate is found, display an alert to the user and don't add the goal to the list.
-    // If it's not a duplicate, proceed with adding it as a new goal.
-    
-    // ⚠️ Hint 3: Code structure
-    // You might want to wrap the duplicate-checking logic in an 'if' statement.
-    
-    // ⚠️ Hint 4: Event listener
-    // The event listener that removes goals when clicked is not related to this issue.
-    // Focus on preventing duplicates for now.
-    
-    const newGoal = document.createElement('li');
-    newGoal.textContent = goalInput;
-    goalList.appendChild(newGoal);
+    // Check if the goal already exists in the list
+    if (!isGoalDuplicate(goal, goalList)) {
+        const newGoal = document.createElement('li');
+        newGoal.textContent = goal;
+        goalList.appendChild(newGoal);
+    } else {
+        alert('This goal already exists!'); // Alert the user if the goal already exists
+    }
 };
 
-// Add event listener to the goal submit button
-document.querySelector('#submitGoal').addEventListener('click', addNewGoal);
+const isGoalDuplicate = (goal, goalList) => {
+    // Iterate through existing goals to check for duplicates
+    for (let i = 0; i < goalList.children.length; i++) {
+        if (goalList.children[i].textContent === goal) {
+            return true; // If the goal already exists, return true
+        }
+    }
+    return false; // If the goal doesn't exist, return false
+};
 
 ///
 let waterIntake = 0;
@@ -75,5 +73,7 @@ const submitMealPlan = (event) => {
     event.preventDefault(); 
     alert('Meal plan submitted successfully! 🍴');
 };
+
+document.querySelector('#mealPlanForm').addEventListener('submit', submitMealPlan);
 
 document.querySelector('#mealPlanForm').addEventListener('submit', submitMealPlan);
