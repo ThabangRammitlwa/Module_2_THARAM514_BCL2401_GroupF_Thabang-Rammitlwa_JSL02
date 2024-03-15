@@ -1,30 +1,8 @@
-# [JSL02] Submission: Debug the DOM
-
-You will: 
-1. Use the Starter Code Repo, 
-2. Code your solution,
-3. Commit changes to your repo
-3. Submit GitHub Repo Link to LMS [JSL02] Submission Project Tab
-
-# Debugging Duplicate Goals
-
-**Debugging Brief:**
-In the current code, users can add the same fitness goal multiple times, leading to duplicate entries in the goal list. To enhance the user experience and prevent duplicates, you need to implement a check to ensure that the same goal cannot be added more than once. If a duplicate goal is detected, it should NOT be added to the list.
-
-![alt text](JSL02_Solution.png)
-
-**Issue:** Users can add duplicate fitness goals.
-**Debugging Task:** Prevent users from adding the same goal more than once.
-
-- The goal is to prevent users from adding duplicate fitness goals to the list.
-- You need to check if the goal being added already exists in the list before appending it.
-- Display an alert to inform the user if they are trying to add a duplicate goal.
-- Focus on the code structure within the function and how to handle duplicates.
-
-**Explanation:**
-1. We first retrieve all the existing goals in the `goalList` using `querySelectorAll`.
-2. Then, we iterate through each existing goal and compare its text content with the new goal input.
-3. If a duplicate is found, we display an alert message and exit the function using `return` to prevent the duplicate goal from being added.
-4. If no duplicate is found, we proceed to create and add the new goal as before.
-
-Check out the practice challenges on Scrimba here: https://scrimba.com/playlist/pwVxGLDUW
+# Introduction:
+Intro to JS is not as easy to grasp as it was with SDF, just when i thought im getting the hang of things ,JS proved me wrong, 
+the is a lot of terms to know and learn,Its still early days to can say much about it
+# Challenges:
+The project was not that hectic , but a bit tricky for me as im still struggling with understanding the language, I had to look for extra reading and teaching materials to get a bit of light, as all at first sounded foreign . Honestly im overwhelmed by it all, I had to take in a lot of content in ,at a very little time and put it into practice, it felt like im doing something that i cant't explain.
+# Overall:
+Learning new things is not easy  but worth it, difficult as it may look i know i will fully understand as we continue with thhe course.
+It is scary and exciting at the same time.
